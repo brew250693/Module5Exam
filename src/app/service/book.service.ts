@@ -17,6 +17,7 @@ export class BookService {
   }
 
   saveBook(book): Observable<Book> {
+    // console.log(book);
     return this.http.post<Book>(API_URL + '/books', book);
   }
 
@@ -28,6 +29,6 @@ export class BookService {
     return this.http.put<Book>(`${API_URL}/books/${id}`, book);
   }
   deleteBook(id: number): Observable<Book> {
-    return this.http.delete<Book>(`${API_URL}/Books/${id}`);
+    return this.http.delete<Book>(`${API_URL}/books/${id}`);
   }
 }

@@ -1,0 +1,23 @@
+<h1>Cập nhật thông tin sản phẩm</h1>
+<form [formGroup]="bookForm" (ngSubmit)="updateBook(id)">
+  <table>
+    <tr>
+      <td>Tên sách:</td>
+      <td><input type="text" formControlName="title"></td>
+    </tr>
+    <tr>
+      <td>Tác giả</td>
+      <td><input type="text" formControlName="author"></td>
+    </tr>
+    <tr>
+      <td>Mô tả về cuốn sách</td>
+      <td><input type="text" formControlName="description"></td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button pButton>Cập nhật</button></td>
+      <td><button routerLink="/book/list" pButton type="button" label="Thoát"></button></td>
+    </tr>
+  </table>
+</form>
+

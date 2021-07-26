@@ -1,0 +1,34 @@
+<div>
+  <h1>Danh sách các cuốn sách</h1>
+  <a routerLink="/book/create">Thêm sách mới</a>
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Tên sách</th>
+      <th scope="col">Tác giả</th>
+    </tr>
+    </thead>
+    <tbody>
+
+
+    <tr *ngFor="let book of books; index as i" [class.selected]="book == SelectedBook" (click)="onSelect(book)">
+      <td>{{i + 1}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.author}}</td>
+      <td><a [routerLink]="['/book/edit',book.id]">Edit</a></td>
+      <td><a [routerLink]="['/book/delete',book.id]">Delete</a></td>
+    </tr>
+    </tbody>
+  </table>
+  <div *ngIf="SelectedBook">
+    <h1>Chi tiết cuốn sách: {{SelectedBook.title | uppercase}}</h1><br>
+    <label>ID:{{SelectedBook.id}}</label><br>
+    <label>Tên:{{SelectedBook.title}}</label><br>
+    <label>Tác giả:{{SelectedBook.author}}</label><br>
+    <label>Mô tả:{{SelectedBook.description}}</label><br>
+
+  </div>
+</div>
+
+
